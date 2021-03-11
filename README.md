@@ -1,7 +1,7 @@
 About pystac
 ============
 
-Home: https://pypi.org/project/pystac/
+Home: https://github.com/azavea/pystac.git
 
 Package license: Apache-2.0
 
