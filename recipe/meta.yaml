@@ -1,13 +1,14 @@
-{% set version = "0.5.4" %}
+{% set name = "pystac" %}
+{% set version = "0.5.5" %}
 
 
 package:
-  name: pystac
+  name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/p/pystac/pystac-{{ version }}.tar.gz
-  sha256: 9fc3359364685adf54e3bc78c87550a8bc8b0a927405419bd8e4bbd42a8efc79
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/pystac-{{ version }}.tar.gz
+  sha256: 2a6464de754390d552464f8f3aa709963a9180ebcefeced6164341f768d7a013
 
 build:
   number: 0
@@ -16,23 +17,23 @@ build:
 
 requirements:
   host:
-    - python
+    - python >=3.6
     - pip
   run:
-    - python
+    - python >=3.6
     - python-dateutil >=2.7.0
 
 test:
   imports:
     - pystac
-    - pystac.serialization
+    - pystac.extensions
   commands:
     - pip check
   requires:
     - pip
 
 about:
-  home: https://pypi.org/project/pystac/
+  home: https://github.com/azavea/pystac.git
   summary: Python library for working with Spatiotemporal Asset Catalog (STAC).
   license: Apache-2.0
   license_file: LICENSE
