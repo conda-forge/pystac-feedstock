@@ -11,16 +11,16 @@ source:
   sha256: 95ef493d6a6df4d982385c1d376c8aa0d967730e8ffeeda0f78cd7372faf066a
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
-    - python >=3.6
+    - python >=3.8
     - pip
   run:
-    - python >=3.6
+    - python >=3.8
     - python-dateutil >=2.7.0
 
 test:
@@ -33,8 +33,8 @@ test:
     - pip
 
 about:
-  home: https://github.com/azavea/pystac.git
-  summary: Python library for working with Spatiotemporal Asset Catalog (STAC).
+  home: https://github.com/stac-utils/pystac
+  summary: Python library for working with Spatiotemporal Asset Catalog (STAC)
   license: Apache-2.0
   license_file: LICENSE
 
