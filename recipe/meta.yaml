@@ -1,5 +1,5 @@
 {% set name = "pystac" %}
-{% set version = "1.8.2" %}
+{% set version = "1.8.3" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/pystac-{{ version }}.tar.gz
-  sha256: 24e4a489f6ae3a403245b4b15067f8fc8155c17c418779aec2135138caa95d92
+  sha256: 3fd0464bfeb7e99893b24c8d683dd3d046c48b2e53ed65d0a8a704f1281f1ed1
 
 build:
   number: 0
