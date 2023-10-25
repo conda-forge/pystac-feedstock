@@ -1,5 +1,5 @@
 {% set name = "pystac" %}
-{% set version = "1.8.4" %}
+{% set version = "1.9.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/pystac-{{ version }}.tar.gz
-  sha256: ab9b93d16c4cca80e3c225cd5815dbaec610ee9320e2119857db17481b9bd2e5
+  sha256: c6b5a86e241fca5e9267a7902c26679f208749a107e9015fe6aaf73a9dd40948
 
 build:
   number: 0
@@ -16,10 +16,10 @@ build:
 
 requirements:
   host:
-    - python >=3.8
+    - python >=3.9
     - pip
   run:
-    - python >=3.8
+    - python >=3.9
     - python-dateutil >=2.7.0
 
 test:
