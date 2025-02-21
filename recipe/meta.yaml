@@ -1,6 +1,6 @@
 {% set python_min = "3.10" %}
 {% set name = "pystac" %}
-{% set version = "1.12.1" %}
+{% set version = "1.12.2" %}
 
 package:
   name: {{ name|lower }}
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/pystac-{{ version }}.tar.gz
-  sha256: 7735d217c1c596f916d0a048c7bdd08f6bc6cb97369b628fab9b7eba4092fbdd
+  sha256: 13a9926fdc6f5a0c81a6bcf5748d3e46fd8814b888936b94fd6d8ca6caf0c20d
 
 build:
   number: 0
