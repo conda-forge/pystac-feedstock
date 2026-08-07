@@ -3,11 +3,13 @@ About pystac-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/pystac-feedstock/blob/main/LICENSE.txt)
 
-Home: https://github.com/stac-utils/pystac
+Home: https://pypi.org/project/pystac/
 
 Package license: Apache-2.0
 
-Summary: Python library for working with Spatiotemporal Asset Catalog (STAC)
+Summary: Python library for working with the SpatioTemporal Asset Catalog (STAC) specification
+
+Documentation: https://pystac.readthedocs.io/
 
 Current build status
 ====================
@@ -40,31 +42,73 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `pystac` can be installed with `conda`:
+How to use
+----------
+
+<details>
+<summary>With conda</summary>
 
 ```
 conda install pystac
 ```
 
-or with `mamba`:
+</details>
+
+<details>
+<summary>With mamba</summary>
 
 ```
 mamba install pystac
 ```
 
-It is possible to list all of the versions of `pystac` available on your platform with `conda`:
+</details>
+
+<details>
+<summary>With pixi</summary>
+
+```
+# for adding to your local project
+pixi add pystac
+# for installing globally
+pixi global install pystac
+```
+
+</details>
+
+Search package versions
+-----------------------
+
+It is possible to list all of the versions of `pystac` available on your platform:
+
+<details>
+<summary>With conda</summary>
 
 ```
 conda search pystac --channel conda-forge
 ```
 
-or with `mamba`:
+</details>
+
+<details>
+<summary>With mamba</summary>
 
 ```
 mamba search pystac --channel conda-forge
 ```
 
-Alternatively, `mamba repoquery` may provide more information:
+</details>
+
+<details>
+<summary>With pixi</summary>
+
+```
+pixi search pystac --channel conda-forge
+```
+
+</details>
+
+<details>
+<summary>With mamba repoquery, which may provide more information</summary>
 
 ```
 # Search all versions available on your platform:
@@ -76,6 +120,8 @@ mamba repoquery whoneeds pystac --channel conda-forge
 # List dependencies of `pystac`:
 mamba repoquery depends pystac --channel conda-forge
 ```
+
+</details>
 
 
 About conda-forge
