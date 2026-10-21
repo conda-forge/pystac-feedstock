@@ -3,7 +3,7 @@ schema_version: 1
 context:
   version: "1.15.2"
 
-package:
+recipe:
   name: pystac
   version: ${{ version }}
 
@@ -12,49 +12,78 @@ source:
   sha256: 4c9a3b2352cad7eb3c226145251c65cbe5c1b04b25d4265b30c015dddf5f391d
 
 build:
-  number: 0
+  number: 1
   noarch: python
-  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
-requirements:
-  host:
-    - python ${{ python_min }}.*
-    - hatchling
-    - pip
-  run:
-    - python >=${{ python_min }}
-    - pystac-core >=1.15.0,<2
-    - pystac-ext-classification
-    - pystac-ext-datacube
-    - pystac-ext-eo
-    - pystac-ext-file
-    - pystac-ext-grid
-    - pystac-ext-item-assets
-    - pystac-ext-label
-    - pystac-ext-mgrs
-    - pystac-ext-mlm
-    - pystac-ext-pointcloud
-    - pystac-ext-projection
-    - pystac-ext-raster
-    - pystac-ext-render
-    - pystac-ext-sar
-    - pystac-ext-sat
-    - pystac-ext-scientific
-    - pystac-ext-storage
-    - pystac-ext-table
-    - pystac-ext-timestamps
-    - pystac-ext-version
-    - pystac-ext-view
-    - pystac-ext-xarray-assets
+outputs:
+  - package:
+      name: pystac
+    build:
+      noarch: python
+      script: ${{ PYTHON }} -m pip install . -vv
+    requirements:
+      host:
+        - python ${{ python_min }}.*
+        - hatchling
+        - pip
+      run:
+        - python >=${{ python_min }}
+        - pystac-core >=1.15.0,<2
+        - pystac-ext-classification
+        - pystac-ext-datacube
+        - pystac-ext-eo
+        - pystac-ext-file
+        - pystac-ext-grid
+        - pystac-ext-item-assets
+        - pystac-ext-label
+        - pystac-ext-mgrs
+        - pystac-ext-mlm
+        - pystac-ext-pointcloud
+        - pystac-ext-projection
+        - pystac-ext-raster
+        - pystac-ext-render
+        - pystac-ext-sar
+        - pystac-ext-sat
+        - pystac-ext-scientific
+        - pystac-ext-storage
+        - pystac-ext-table
+        - pystac-ext-timestamps
+        - pystac-ext-version
+        - pystac-ext-view
+        - pystac-ext-xarray-assets
+    tests:
+      - python:
+          imports: pystac
+          pip_check: true
+          python_version:
+            - ${{ python_min }}.*
+            - "*"
 
-tests:
-  - python:
-      imports:
-        - pystac
-      pip_check: true
-      python_version:
-        - ${{ python_min }}.*
-        - "*"
+  - package:
+      name: pystac-validation
+    build:
+      noarch: python
+    requirements:
+      host:
+        - python ${{ python_min }}.*
+      run:
+        - ${{ pin_subpackage("pystac", exact=True) }}
+        # Extra: jinja2
+        - jinja2 <4.0
+        # Extra: orjson
+        - orjson >=3.5
+        # Extra: urllib3
+        - urllib3 >=2.6.3
+        # Extra: validation
+        - jsonschema >=4.18,<5.dev0
+    tests:
+      - python:
+          imports:
+            - pystac
+          pip_check: true
+          python_version:
+            - ${{ python_min }}.*
+            - "*"
 
 about:
   summary: Python library for working with the SpatioTemporal Asset Catalog (STAC) specification
