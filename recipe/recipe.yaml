@@ -67,6 +67,7 @@ outputs:
       host:
         - python ${{ python_min }}.*
       run:
+        - python >=${{ python_min }}
         - ${{ pin_subpackage("pystac", exact=True) }}
         # Extra: jinja2
         - jinja2 <4.0
