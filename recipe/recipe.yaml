@@ -1,7 +1,7 @@
 schema_version: 1
 
 context:
-  version: "1.16.0"
+  version: "1.16.1"
 
 recipe:
   name: pystac
@@ -9,7 +9,7 @@ recipe:
 
 source:
   url: https://pypi.org/packages/source/p/pystac/pystac-${{ version }}.tar.gz
-  sha256: 7cf58fee25d3cf640d79c11f5dc750d8d2552193c4f83c86179efd997a393ea1
+  sha256: 25126c9c7e78f44a3f4b5f61ec0dacf35ae0c2dc320412483701d0501793270b
 
 build:
   number: 0
